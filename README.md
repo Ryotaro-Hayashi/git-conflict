@@ -1,22 +1,36 @@
-# git-rebase
+# git-command
 
-<h3>状況</h3>
+## git rebase
+### 状況
 develop から feature/two というブランチを切って開発している間に、develop が更新されてしまった
 
-<h3>手順</h3>
+### 手順
 
-'$git checkout develop'
+```
+$ git checkout develop
+```
 
-'$git pull origin develop'
+```
+$ git pull origin develop
+```
 
-'$git checkout feature/two'
+```
+$ git checkout feature/two
+```
 
-'$git rebase develop'
+```
+$ git rebase develop
+```
 
+```
 コンフリクトを解消
+```
 
-'$git add ファイル名'
+```
+$ git add ファイル名
+```
 
-'$git rebase --continue'
+```
+$git rebase --continue
+```
 
-ローカルブランチ削除
