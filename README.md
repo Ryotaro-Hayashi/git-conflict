@@ -24,7 +24,7 @@ git commit -m "commit message"
 ```
 コミットログを出力する
 ```
-git log --oneline --graph --all
+git log --oneline --graph --all -n <表示させたい件数>
 ```
 参照ログ(HEADやブランチ先端の動き)を出力する
 ```
@@ -112,3 +112,44 @@ git stash
 ```
 git stash pop
 ```
+
+## コミットをまとめる
+修正する範囲のコミットを指定してrebase
+```
+git rebase -i <コミット範囲（ex: HEAD~4）>
+```
+まとめたいコミットのpickをsquash(または s)に修正する
+
+コミットメッセージを編集する（まとめたいコミットを削除する）
+
+## コミットメッセージを修正する
+使用する流れは「**コミットをまとめる**」と同じ
+
+reword: コミットメッセージを修正する
+
+## コミットを分割する
+修正する範囲のコミットを指定してrebase
+```
+git rebase -i <コミット範囲（ex: HEAD~4）>
+```
+まとめたいコミットのpickをeditに修正する
+
+指定したコミットでリベースが止まる
+
+コミットを取り消す
+```
+git reset --soft HEAD~1
+```
+分割してコミットする
+
+rebaseを再開させる
+```
+git rebase --continue
+```
+
+## コミットを入れ替える・削除する
+修正する範囲のコミットを指定してrebase
+```
+git rebase -i <コミット範囲（ex: HEAD~4）>
+```
+コミットを入れ替えたり削除するだけ
