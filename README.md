@@ -18,9 +18,21 @@ git add -A
 ```
 git reset ファイル名
 ```
+指定したファイルをワーキングツリーに復元
+```
+git restore ファイル名
+```
 コミットする
 ```
 git commit -m "commit message"
+```
+空コミットする
+```
+git commit --allow-empty -m "empty commit message"
+```
+ステージングされているファイルを直前のコミットに取り入れる（`--no-edit`がないとエディタが立ち上がる）
+```
+git commit —-amend —-no-edit
 ```
 コミットログを出力する
 ```
@@ -32,11 +44,23 @@ git reflog
 ```
 プッシュする
 ```
-git push origin <ブランチ名>
+git push origin HEAD
+```
+安全にフォースプッシュする
+```
+git push origin <ブランチ名> —force-with-lease
 ```
 プルする
 ```
 git pull origin <ブランチ名>
+```
+別のブランチの変更をマージコミットをせずに取り入れる
+```
+git pull --rebase origin <ブランチ名>
+```
+リモートリポジトリをリモート追跡ブランチに反映し、リモートで存在しないブランチをローカルから削除
+```
+git fetch --prune
 ```
 変更内容の差分を表示
 ```
@@ -46,9 +70,25 @@ git diff
 ```
 git diff <コミットID> <コミットID>
 ```
+コミット間で差分のあるファイル一覧を表示
+```
+git diff --name-only <コミットID> <コミットID>
+```
+ファイルを指定してコミット間の差分を表示
+```
+git diff <コミットID> <コミットID> <ファイル名>
+```
+リモートブランチとの差分を表示する
+```
+git diff <リモートブランチ(ex: origin/master)>
+```
 ブランチを作成
 ```
 git branch <ブランチ名>
+```
+リモートブランチをもとに同名のブランチを作成
+```
+git branch　<ブランチ名> origin/<ブランチ名>
 ```
 存在するブランチを確認
 ```
@@ -57,6 +97,24 @@ git branch
 ブランチを切り替える
 ```
 git checkout <ブランチ名>
+```
+ブランチを作成して切り替える
+```
+git checkout -b <ブランチ名>
+```
+リモートブランチに切り替える
+```
+git switch <リモートブランチ名（originはいらない）>
+```
+リモートブランチに切り替える
+```
+git switch <リモートブランチ名（originはいらない）>
+```
+
+## config
+`git pull`で毎回`git pull –rebase`をするようにする
+```
+git config —grobal pull.rebase true
 ```
 
 ## 先にローカルがあるとき
