@@ -116,6 +116,14 @@ git switch <リモートブランチ名（originはいらない）>
 ```
 git config —grobal pull.rebase true
 ```
+カレントブランチと同名のリモートブランチがあればそこにプッシュ
+```
+git config --global push.default current
+```
+`pull.rebase = true`を設定した上で、`rebase`時に自動で`stash`&`pop`してくれる（`pull`のときに`stash`しなくて良い）
+```
+git config --global rebase.autostash true
+```
 
 ## 先にローカルがあるとき
 
