@@ -143,6 +143,14 @@ git init
 ```
 git remote add <リモートリポジトリ名(ex: origin)> <リモートリポジトリのURL>
 ```
+masterをmainにする
+```
+git branch -m master main
+```
+pull
+```
+git pull origin main
+```
 
 ## 特定のリビジョンに戻る
 
